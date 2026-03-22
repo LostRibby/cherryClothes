@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import Style from './Header.module.css'; 
 
+import Style from './Header.module.css'; 
+import { Login } from './login';
 
 export function Header(){
 
@@ -15,8 +15,6 @@ export function Header(){
                 <a href="#produits">Produits</a>
                 <a href="#contact">Contact</a>
             </nav>
-
-            <button className={Style.button}>Connexion</button>
         </header>
     )
 }

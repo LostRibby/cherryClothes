@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding : 0; 
+}
+header{
+    background-color: rgb(241, 159, 172);
+    color: white; 
+    display: flex; 
+    
+    h1{
+        font-size : 20px; 
+
+    }
+}
