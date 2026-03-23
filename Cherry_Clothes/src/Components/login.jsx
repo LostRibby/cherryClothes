@@ -1,33 +1,48 @@
 import { useState } from "react";
 import Style from './Login.module.css';
+import { useAuth } from "./AuthContext.jsx";
+import { useNavigate } from "react-router-dom";
 
-export function Login() {
 
+export const Login = () => {
+    const { login } = useAuth();
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!email || !password) {
+            setError("Veuillez remplir tous les champs");
+            return;
+        }
+
         try {
-            const response = await fetch('http://localhost:3000/api/users',{
-                method: 'POST',
-                headers: {'content type': 'application/json' }, 
-                body : JSON.stringify({email, password})           
-             }); 
-             const data = await response.json(); 
+            const response = await fetch('http://localhost:3000/api/users', {
+                method: 'GET',
+                headers: { 'content-type': 'application/json' },
+            });
+            let data = await response.json();
+            try {
+                data = await response.json();
+            } catch {
+                data = {};
+            }
+            if (!response.ok) {
+                throw new Error(data.message || 'erreur de connexion');
+            }
+            console.log('connexion réussie', data);
+            localStorage.setItem('token', data.token);
 
-             if(!response.ok){
-                throw new Error(data.message || 'erreur de connexion'); 
-             }
-             console.log('connexion réussie', data); 
-             localStorage.setItem('token', data.token); 
-
-             window.location.href = '/dashboard'; 
-        }catch(err){
+            login(data.token);
+            navigate('/dashboard');
+        } catch (err) {
             setError(err.message);
-    };}
-    
+        };
+    }
+
     return (
         <div className={Style.container}>
             <form className={Style.loginform} onSubmit={handleSubmit}>
