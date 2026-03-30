@@ -10,7 +10,7 @@ const authentificationMiddleware = ()=>{
         const authorization = req.headers.authorization; 
 
         if(!authorization){
-            res.status(401).json({ statusCode: 401, message: 'vouqs devez être connecté'}); 
+            res.status(401).json({ statusCode: 401, message: 'vous devez être connecté'}); 
         }
         else{
             const token = authorization.split('')[1]; 

@@ -3,9 +3,10 @@ import { useEffect } from 'react'
 import './App.css'
 import {Header} from './Components/Header.jsx'; 
 import {Main} from './Components/Main.jsx';
-import {Login} from './Components/login.jsx';
-import {AuthProvider} from './Components/AuthContext.jsx';
+import {RegisterForm} from './Auth/Register.jsx'
+import {AuthProvider} from './Auth/AuthContext.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Login } from './Auth/login.jsx';
 
 const PrivateRoute = ({ children }) => {
   const { isLoggedIn } = useAuth();
@@ -18,19 +19,20 @@ const App= () =>{
 
 
   return (
+    
     <AuthProvider>
-    <Router>
+  <Router>
       <Header />
 
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<RegisterForm/>}/>
         {/* Autres routes */}
       </Routes>
-      
     </Router>
  </AuthProvider>
-    )
+     )
   
 }
 

@@ -3,7 +3,8 @@ const userService = require('../Services/User.service');
 const UserController = {
     getAll: async (req, res)=>{
         try{
-            const users = await userService.find();
+            const query = req.query;
+            const users = await userService.find(query);
             res.status(200).json(users);
         }catch{
             console.log(err);

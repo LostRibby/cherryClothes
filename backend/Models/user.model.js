@@ -26,14 +26,13 @@ const userSchema = new Schema(
          role :{
             type: String, 
             requires: true, 
-            enum : ['Membre', 'Artiste', 'Admin'], 
+            enum : ['Membre', 'Artiste'], 
             default : 'Membre'
         }
     }, 
 
 {
-    collection : 'User', 
-    timestamps : true
+    collection : 'User',
 }); 
 
 const User = model('User', userSchema); 

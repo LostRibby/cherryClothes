@@ -11,16 +11,16 @@ const userAuthorizationMiddleware = ()=>{
         try{
             const tokenUser = await User.findById(userId); 
             if(!tokenUser){
-                res.status(404).json({statusCode: 404, message : 'Vous n\'existez plus dans la base de donées'}); 
+               return res.status(404).json({statusCode: 404, message : 'Vous n\'existez plus dans la base de donées'}); 
             }else{
               if(tokenUser.role ==='Admin'){
                 next(); 
               }  
-              else if(userId === userRouterId){
+              else if(userId.toString() === userRouterId){
                 next();
               }
               else{
-                res.status(403).json({statusCode:403, message:'Vous n\'avez pas droit d\'accéder aux données!'}); 
+               return res.status(403).json({statusCode:403, message:'Vous n\'avez pas droit d\'accéder aux données!'}); 
               }
             }
         }

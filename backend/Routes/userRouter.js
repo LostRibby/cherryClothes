@@ -3,7 +3,7 @@ const UserRouter = express.Router();
 
 const User = require('../Models/user.model'); 
 
-UserRouter.post('/', async(req,res)=>{
+UserRouter.post('/api/user', async(req,res)=>{
    try{
     const newUser = new User(req.body); 
     const savedUser = await newUser.save();

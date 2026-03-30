@@ -17,6 +17,7 @@ const bodyValidatorMiddleware = ()=>{
                 {
                     if(offensiveWords.some(word => valueInField.toLowerCase().includes(word))){
                         res.status(400).json({statusCode : 400, message : 'contient un mot interdit!'}); 
+                        return;
                     }
                 } 
             

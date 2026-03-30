@@ -1,9 +1,9 @@
 
 import Style from './Header.module.css'; 
-import { Login } from './login';
+import { Login } from '../Auth/login';
 import {Link, useNavigate} from 'react-router-dom';
-import { useAuth} from "./AuthContext.jsx";
-
+import { useAuth} from "../Auth/AuthContext.jsx";
+import { RegisterForm } from '../Auth/Register.jsx';
 
 export const Header = () => {
 const {isLoggedIn, logout} = useAuth(); 
@@ -18,15 +18,16 @@ const handleLogout = () => {
             <h1>Cherry Clothes</h1>
 
             <nav>
-                <Link to='/'>Accueil</Link> |{""}
-                <Link to='/produits'>Produits</Link> |{""}
-                <Link to='/contact'>Contact</Link>
+                <button><Link to='/'>Accueil</Link></button> 
+                <button><Link to='/contact'>Contact</Link></button>
 
                 {isLoggedIn?(
                     <button onClick={handleLogout}>Déconnexion</button>
                 ):(
-                    <Link to='/login'>Connexion</Link>
+                    <button><Link to='/login'>Connexion</Link></button>
                 )}
+
+                <button><Link to='/register'>S'inscrire</Link></button>
             </nav>
            
         </header>

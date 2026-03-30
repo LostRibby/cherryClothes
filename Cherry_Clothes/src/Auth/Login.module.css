@@ -1,0 +1,50 @@
+.container{
+    background-color: white;
+    padding :4%; 
+    border-radius : 15px; 
+    width : 70%;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+h2{
+    text-align: center;
+    margin-bottom : 2%;
+    color : palevioletred; 
+}
+.inputgroup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+input{
+width : auto;
+padding : 1%;
+margin: 2% 1% 5%;
+border: 1px solid palevioletred;
+border-radius: 15px;
+box-sizing: border-box;
+font-size: 14px;
+
+display: flex;
+justify-content: center;
+
+}
+
+label{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.submit1{
+    color : white; 
+    background-color: lightpink; 
+    border-radius: 15px;
+    margin-left :43%;
+
+}
+
+.submit1:hover{
+    background-color: palevioletred;
+}

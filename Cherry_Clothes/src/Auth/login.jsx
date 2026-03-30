@@ -2,11 +2,11 @@ import { useState } from "react";
 import Style from './Login.module.css';
 import { useAuth } from "./AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios';
 
 export const Login = () => {
-    const { login } = useAuth();
     const navigate = useNavigate();
+    const { login } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -14,34 +14,23 @@ export const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!email || !password) {
-            setError("Veuillez remplir tous les champs");
-            return;
-        }
-
         try {
-            const response = await fetch('http://localhost:3000/api/users', {
-                method: 'GET',
-                headers: { 'content-type': 'application/json' },
-            });
-            let data = await response.json();
-            try {
-                data = await response.json();
-            } catch {
-                data = {};
+            const response = await axios.get('http://localhost:3000/api/');
+        
+            if(response.data.token){
+                console.log('Token', response.data.token);
+                localStorage.setItem('token',response.data.token); 
             }
-            if (!response.ok) {
-                throw new Error(data.message || 'erreur de connexion');
-            }
-            console.log('connexion réussie', data);
-            localStorage.setItem('token', data.token);
 
-            login(data.token);
-            navigate('/dashboard');
         } catch (err) {
-            setError(err.message);
-        };
+            console.log('erreur', error);
+        }
     }
+    console.log(error);
+    console.log('connexion réussie');
+    
+
+
 
     return (
         <div className={Style.container}>
@@ -59,8 +48,8 @@ export const Login = () => {
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Entrez votre mot de passe" />
                 </div>
 
-                <button type="submit">Se connecter</button>
+                <button className={Style.submit1} type="submit">Se connecter</button>
             </form>
         </div>
     );
-}; 
+};

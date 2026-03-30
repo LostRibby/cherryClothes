@@ -45,7 +45,7 @@ const authService ={
 
             user.password= hashedPassword; 
 
-            const userToCreate = User(user); 
+            const userToCreate = new User(user); 
             await userToCreate.save();
 
             return userToCreate; 

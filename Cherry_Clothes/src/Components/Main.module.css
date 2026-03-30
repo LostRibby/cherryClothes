@@ -1,0 +1,65 @@
+
+.h1{
+    display: flex;
+    justify-content: center;
+    color: palevioletred;
+    margin : 3%;
+}
+
+.container{
+    width: 90%;
+    height : auto; 
+    padding : 0;
+    margin: 5.1%;
+    display: flex;
+    flex-wrap : wrap;
+    justify-content: center;
+
+.creatorContainer{
+    width: 90%;
+    height: 75%; 
+    border: 2px solid palevioletred; 
+    border-radius: 15px;
+    padding : 2%;
+    margin-bottom: 1%;
+    background-color: white;
+}
+
+.creators{
+    display:flex; 
+    flex-direction: row;
+ color:rgb(241, 159, 172); 
+ font-size: 22px;
+button{
+background-color: rgb(241, 159, 172);
+border : 1px solid palevioletred; 
+font-weight : bold; 
+font-size: 18px;
+color : white; 
+margin-left : 2%;
+border-radius: 10px; 
+padding: 0.5%
+
+    }
+    button:hover{
+        background-color: palevioletred;
+    }
+}
+img{
+    width :30%;
+    height: 350px; 
+    border-radius: 15px;  
+    margin : 1%;
+    margin-left: 2%;
+}
+.image{
+    width : 90%;
+    height : 40%; 
+    display: flex; 
+    flex-direction: row ;
+    gap : 5px; 
+    justify-content: center;
+    flex-wrap: wrap;
+    margin : 7%;
+    align-items: center;
+}}
