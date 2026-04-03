@@ -30,7 +30,11 @@
     flex-direction: row;
  color:rgb(241, 159, 172); 
  font-size: 22px;
-button{
+
+
+   
+} 
+.fav{
 background-color: rgb(241, 159, 172);
 border : 1px solid palevioletred; 
 font-weight : bold; 
@@ -38,16 +42,15 @@ font-size: 18px;
 color : white; 
 margin-left : 2%;
 border-radius: 10px; 
-padding: 0.5%
-
+padding: 0.5%;
+width : 400px;
     }
-    button:hover{
+.fav:hover{
         background-color: palevioletred;
     }
-}
 img{
-    width :30%;
-    height: 350px; 
+    width :380px;
+    height: 500px; 
     border-radius: 15px;  
     margin : 1%;
     margin-left: 2%;

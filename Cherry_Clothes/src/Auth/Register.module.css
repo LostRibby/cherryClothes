@@ -2,10 +2,17 @@
     margin:0;
     padding : 0;
     box-sizing: border-box;
-    
+    width: 100%;
+     
 }
-h2{
+
+.bg{
+    background-color: antiquewhite
+}
+.inscription{
+
      text-align: center;
+    
     margin-bottom : 2%;
     color : palevioletred;  
 }
@@ -13,14 +20,18 @@ h2{
     background-color: white;
     padding :4%; 
     border-radius : 15px; 
-    width : 70%;
+    width : 80%;
     margin-left: 15%;
     margin-top: 5%;
+    margin-bottom: 4%; 
+    display: flex;
+flex-direction: column;
+width: 60%;
+
 }
 
 .RegisterForm{
-display: flex;
-justify-content: center;
+    
 flex-direction: column;
 background-color: white;
 border-radius: 15px;
@@ -29,19 +40,25 @@ border-radius: 15px;
 label{
     font-weight: bold;
     font-size:18px;
+    background-color: white;
 }
 
 input{
+
+    margin-left: 35%;
+    width:30%;
 padding: 1%;
 border-radius: 15px;
 font-size: 14px;
+background-color: white;
+
 }
 
 .submit{
     color : white; 
     background-color: lightpink; 
     margin-left:25% ;
-    width: 50%;
+    width: 40%;
     padding:2%; 
     display: flex;
     justify-content: center;
@@ -49,4 +66,21 @@ font-size: 14px;
 
 .submit:hover{
     background-color: palevioletred;
+}
+
+.ContainerInput{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+select{
+    width :30% ;
+    padding : 1%; 
+    margin-left : 35%;
+     margin-bottom: 3%;
+     border-radius: 15px;
+     margin-top: 2%; 
+     background-color: white;
 }

@@ -1,22 +1,37 @@
 const express = require('express');
- const cors = require('cors'); 
+const cors = require('cors');
 const mongoose = require("mongoose");
+const uploadRouter = require('./Routes/upload.router');
 const server = express();
 
-const { PORT, MONGODB_URI } = process.env;
 
-if(!PORT || !MONGODB_URI){
+const { PORT, MONGODB_URI } = process.env;
+server.use(uploadRouter);
+if (!PORT || !MONGODB_URI) {
     console.error('probleme avec .env')
 }
 
-server.use(cors()); 
+
+server.get('/', (req, res) => {
+    res.send('API OK');
+});
+server.use(cors());
 server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+
+
 
 const LogMiddleware = require("./Middlewares/log.middleware");
 server.use(LogMiddleware());
 
 const UserRouter = require("./Routes");
-server.use('/api',UserRouter);
+const router = require('./Routes');
+const { Router } = require('react-router-dom');
+
+
+server.use('/api', UserRouter);
+server.use(router); 
+
 
 mongoose.connect(MONGODB_URI, { dbName: 'CheryClothesDB' })
     .then(() => {
@@ -26,8 +41,8 @@ mongoose.connect(MONGODB_URI, { dbName: 'CheryClothesDB' })
         });
 
     })
-    .catch(err =>{ 
+    .catch(err => {
         console.log('erreur de connection à la db')
     })
 
- 
+

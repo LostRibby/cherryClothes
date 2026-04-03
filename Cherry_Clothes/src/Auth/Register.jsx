@@ -50,33 +50,38 @@ console.log('Données inscription:', formData);
     }
 
     return (
-        <div>
-            <h2>Inscription</h2>
-
+        <div className={Style.bg}>
+            <h1 className={Style.inscription}>Inscription</h1>
             <div className={Style.container}>
                 <form onSubmit={handleSubmit} className={Style.RegisterForm}>
+
+                    <div className={Style.ContainerInput}>
                     <label htmlFor="firstname">Prénom</label>
                     <input type='text' name='firstname' placeholder='Prénom'
                     value={formData.firstname}  onChange={handleChange} />
-
+</div >
+<div className={Style.ContainerInput}>
                     <label htmlFor="lastname">Nom</label>
                     <input type="text" name='lastname' placeholder='Nom' 
                     value={formData.lastname} onChange={handleChange} />
-
+</div>
+<div className={Style.ContainerInput}>
                     <label htmlFor="email">Email</label>
                     <input type="email" name='email' 
                     value={formData.email} placeholder='Email' onChange={handleChange} />
-
+</div>
+<div className={Style.ContainerInput}>
                     <label htmlFor="password">Mot de passe</label>
                     <input type="password" name="password" 
                     value={formData.password} placeholder='Mot de passe' onChange={handleChange} />
-
+</div>
+<div className={Style.ContainerInput}>
                     <label htmlFor="role">Role</label>
                     <select name="role">
                         <option value="Membre">Membre</option>
                         <option value="Artiste">Artiste</option>
                     </select>
-
+</div>
                     <button className={Style.submit} type='submit'>S'inscrire</button>
                 </form>
             </div>

@@ -12,7 +12,7 @@ nav{
     display: flex;
     justify-content: end;
 }
-button{
+.headerbtn{
     margin : 1%;
 background-color: white;
 color: palevioletred ;

@@ -18,16 +18,16 @@ const handleLogout = () => {
             <h1>Cherry Clothes</h1>
 
             <nav>
-                <button><Link to='/'>Accueil</Link></button> 
-                <button><Link to='/contact'>Contact</Link></button>
+                <button className={Style.headerbtn}><Link to='/'>Accueil</Link></button> 
+                <button className={Style.headerbtn}><Link to='/contact'>Contact</Link></button>
 
                 {isLoggedIn?(
-                    <button onClick={handleLogout}>Déconnexion</button>
+                    <button className={Style.headerbtn} onClick={handleLogout}>Déconnexion</button>
                 ):(
-                    <button><Link to='/login'>Connexion</Link></button>
+                    <button className={Style.headerbtn}><Link to='/login'>Connexion</Link></button>
                 )}
 
-                <button><Link to='/register'>S'inscrire</Link></button>
+                <button className={Style.headerbtn}><Link to='/register'>S'inscrire</Link></button>
             </nav>
            
         </header>

@@ -1,12 +1,11 @@
-
-import { useEffect } from 'react'
 import './App.css'
 import {Header} from './Components/Header.jsx'; 
-import {Main} from './Components/Main.jsx';
+
 import {RegisterForm} from './Auth/Register.jsx'
 import {AuthProvider} from './Auth/AuthContext.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Login } from './Auth/login.jsx';
+import { ImagePostApp } from './Components/ImagesPostApp.jsx';
 
 const PrivateRoute = ({ children }) => {
   const { isLoggedIn } = useAuth();
@@ -25,7 +24,7 @@ const App= () =>{
       <Header />
 
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<ImagePostApp />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<RegisterForm/>}/>
         {/* Autres routes */}
